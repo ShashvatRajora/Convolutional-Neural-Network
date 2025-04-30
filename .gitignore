@@ -1,0 +1,5 @@
+*.exe
+*.o
+logs/*.txt
+logs/*.md~
+*.DS_Store
