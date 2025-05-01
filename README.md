@@ -135,3 +135,4 @@ Image 9 - True Label: 9 | Predicted: 9 (Confidence: 91.37%)
 ```bash
 gcc src/main.c src/cnn.c src/loss.c -o cnn -lm
 cnn.exe
+cnn.exe --load
