@@ -5,11 +5,11 @@
 This project implements a **Convolutional Neural Network (CNN)** **entirely in pure C**, trained on grayscale facial images.  
 The goal is to manually build and train a CNN from scratch — with no libraries, no frameworks — just raw C logic .
 
-- Full Forward & Backpropagation ✅  
-- Convolution, ReLU, Max Pooling, FC layers ✅  
-- Model saving to file ✅  
-- Dataset augmentation ✅  
-- Realtime loss and accuracy tracking ✅  
+- Full Forward & Backpropagation  
+- Convolution, ReLU, Max Pooling, FC layers 
+- Model saving to file 
+- Dataset augmentation   
+- Realtime loss and accuracy tracking   
 
 
 
@@ -32,11 +32,11 @@ Input: 32x32 grayscale image (1024 values) ↓ Conv1: 8 filters, 3x3 ↓ ReLU �
 ### 💡 Augmented to Improve Accuracy
 
 Since 80 images were too little to train a CNN, we **augmented each image into 6 versions**:
-- ✅ Horizontal Flip
-- ✅ Vertical Flip
-- ✅ Brightness +30
-- ✅ Contrast Stretch
-- ✅ Salt & Pepper Noise
+-  Horizontal Flip
+-  Vertical Flip
+-  Brightness +30
+-  Contrast Stretch
+-  Salt & Pepper Noise
 
 **Total images after augmentation: 480**
 
@@ -84,7 +84,7 @@ Image 2 - True Label: 2 | Predicted: 2 (Confidence: 78.09%)
 
 ## 🧠 Challenges Faced
 
-| ❌ Problem | ✅ Solution |
+|  Problem |  Solution |
 |-----------|-------------|
 | Small dataset (80 images) | Augmented to 480 using flips, noise, brightness |
 | No ML libraries | Manually implemented conv, pool, FC, softmax |
