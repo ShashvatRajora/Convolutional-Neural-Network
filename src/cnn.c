@@ -278,3 +278,38 @@ void save_model(const ConvLayer1 *conv1, const ConvLayer2 *conv2, const FullyCon
     fclose(f);
     printf("Model saved successfully to %s\n", filename);
 }
+
+void load_model(ConvLayer1* conv1, ConvLayer2* conv2, FullyConnectedLayer* fc, const char* filename) {
+    FILE* f = fopen(filename, "r");
+    if (!f) {
+        printf("❌ Failed to load model from %s\n", filename);
+        return;
+    }
+
+    // Conv1 Filters
+    for (int f_idx = 0; f_idx < CONV1_FILTERS; f_idx++) {
+        for (int i = 0; i < FILTER_SIZE; i++)
+            for (int j = 0; j < FILTER_SIZE; j++)
+                fscanf(f, "%f", &conv1->filters[f_idx][i][j]);
+        fscanf(f, "%f", &conv1->biases[f_idx]);
+    }
+
+    // Conv2 Filters
+    for (int f_idx = 0; f_idx < CONV2_FILTERS; f_idx++) {
+        for (int c = 0; c < CONV1_FILTERS; c++)
+            for (int i = 0; i < FILTER_SIZE; i++)
+                for (int j = 0; j < FILTER_SIZE; j++)
+                    fscanf(f, "%f", &conv2->filters[f_idx][c][i][j]);
+        fscanf(f, "%f", &conv2->biases[f_idx]);
+    }
+
+    // FC Weights & Biases
+    for (int i = 0; i < NUM_CLASSES; i++) {
+        for (int j = 0; j < 4096; j++)
+            fscanf(f, "%f", &fc->weights[i][j]);
+        fscanf(f, "%f", &fc->biases[i]);
+    }
+
+    fclose(f);
+    printf("✅ Model loaded successfully from %s\n", filename);
+}

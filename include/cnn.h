@@ -43,5 +43,6 @@ void max_pool_backward(float input[32][32][CONV2_FILTERS], float d_pool[16][16][
 void conv2_backward(float input[32][32][CONV1_FILTERS], ConvLayer2 *layer, float d_output[32][32][CONV2_FILTERS], float d_input[32][32][CONV1_FILTERS], float learning_rate);
 void conv1_backward(float input[32][32], ConvLayer1 *layer, float d_output[32][32][CONV1_FILTERS], float learning_rate);
 void save_model(const ConvLayer1 *conv1, const ConvLayer2 *conv2, const FullyConnectedLayer *fc, const char *filename);
+void load_model(ConvLayer1* conv1, ConvLayer2* conv2, FullyConnectedLayer* fc, const char* filename);
 
 #endif
